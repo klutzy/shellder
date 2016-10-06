@@ -169,12 +169,18 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
+prompt_time() {
+  now="%D %*"
+  prompt_segment green black "$now"
+}
+
 
 #
 # Prompt
 #
 build_prompt() {
   RETVAL=$?
+  prompt_time
   prompt_status
   prompt_virtualenv
   prompt_context
